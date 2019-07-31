@@ -40,8 +40,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
-import static org.apache.calcite.plan.RelOptUtil.conjunctions;
-
 /**
  * Planner rule that pushes filters above and
  * within a join node into the join node and/or its children nodes.
@@ -142,7 +140,7 @@ public abstract class FilterJoinRule extends RelOptRule {
 
     final List<RexNode> aboveFilters =
         filter != null
-            ? RelOptUtil.conjunctions( RexUtil.toCnf(rexBuilder, filter.getCondition()))
+            ? RelOptUtil.conjunctions(RexUtil.toCnf(rexBuilder, filter.getCondition()))
             : new ArrayList<>();
     final ImmutableList<RexNode> origAboveFilters =
         ImmutableList.copyOf(aboveFilters);
