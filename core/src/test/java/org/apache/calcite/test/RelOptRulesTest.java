@@ -5674,21 +5674,21 @@ public class RelOptRulesTest extends RelOptTestBase {
    * Extra logic to derive additional filters in the FilterJoinRule.</a>. */
   @Test public void testDeriveFiltersFromDisjunctions() {
     HepProgram hepProgram = new HepProgramBuilder()
-      .addRuleInstance(FilterJoinRule.FILTER_ON_JOIN)
-      .addRuleInstance(FilterJoinRule.JOIN)
-      .build();
+        .addRuleInstance(FilterJoinRule.FILTER_ON_JOIN)
+        .addRuleInstance(FilterJoinRule.JOIN)
+        .build();
 
     final HepPlanner hepPlanner =
-      new HepPlanner(hepProgram);
+        new HepPlanner(hepProgram);
 
     final String sql = "select * from sales.emp e join \n"
-      + "sales.dept d on e.job = d.name "
-      + "where (e.deptno = 5 AND d.deptno = 2) "
-      + "OR (e.deptno = 7 AND d.deptno = 3)";
+        + "sales.dept d on e.job = d.name "
+        + "where (e.deptno = 5 AND d.deptno = 2) "
+        + "OR (e.deptno = 7 AND d.deptno = 3)";
 
     sql(sql)
-      .with(hepPlanner)
-      .check();
+        .with(hepPlanner)
+        .check();
   }
 
 }
