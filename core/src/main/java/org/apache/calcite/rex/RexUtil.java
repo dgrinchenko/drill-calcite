@@ -1481,7 +1481,7 @@ public class RexUtil {
    *
    * <blockquote>(a AND b) OR (c AND d)</blockquote>
    *
-   * <p>The following expression is not in CNF:
+   * <p>The following expression is not in DNF:
    *
    * <blockquote>(a OR b) AND c</blockquote>
    *
@@ -1489,7 +1489,7 @@ public class RexUtil {
    *
    * <blockquote>(a AND c) OR (b AND c)</blockquote>
    *
-   * <p>The following expression is not in CNF:
+   * <p>The following expression is not in DNF:
    *
    * <blockquote>NOT (a OR NOT b)</blockquote>
    *
